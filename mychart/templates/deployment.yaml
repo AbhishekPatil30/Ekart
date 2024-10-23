@@ -51,10 +51,10 @@ spec:
             periodSeconds: 5           # How often to perform the probe
           resources:
             requests:
-              memory: "128Mi"          # Minimum amount of memory
+              memory: "256Mi"          # Minimum amount of memory
               cpu: "250m"              # Minimum amount of CPU
             limits:
-              memory: "256Mi"          # Maximum amount of memory
+              memory: "500Mi"          # Maximum amount of memory
               cpu: "500m"              # Maximum amount of CPU
       {{- with .Values.nodeSelector }}
       nodeSelector:
