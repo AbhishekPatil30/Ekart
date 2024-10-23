@@ -41,12 +41,21 @@ spec:
             httpGet:
               path: /
               port: http
+            initialDelaySeconds: 30  # Delay before starting the liveness probe
+            periodSeconds: 10         # How often to perform the probe
           readinessProbe:
             httpGet:
               path: /
               port: http
+            initialDelaySeconds: 5    # Delay before starting the readiness probe
+            periodSeconds: 5           # How often to perform the probe
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            requests:
+              memory: "128Mi"          # Minimum amount of memory
+              cpu: "250m"              # Minimum amount of CPU
+            limits:
+              memory: "256Mi"          # Maximum amount of memory
+              cpu: "500m"              # Maximum amount of CPU
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
