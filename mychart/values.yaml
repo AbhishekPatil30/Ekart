@@ -5,12 +5,12 @@
 replicaCount: 1
 
 image:
-  repository: abhipatil009/shopping:latest
+  repository: abhipatil009/shopping  # Ensure that this is correct
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest" 
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: regcred
 nameOverride: ""
 fullnameOverride: ""
 
